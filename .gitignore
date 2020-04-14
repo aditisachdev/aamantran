@@ -1,0 +1,8 @@
+.Python
+.vscode
+__pycache__
+bin/
+include/
+lib/
+*.sqlite3
+
