@@ -7,10 +7,15 @@ from .models import Invite
 class InviteType(DjangoObjectType):
     class Meta:
         model = Invite
+        convert_choices_to_enum = False
 
 
 class Query(graphene.ObjectType):
+    invite = graphene.Field(InviteType, id=graphene.Int(required=True))
     invites = graphene.List(InviteType)
+
+    def resolve_invite(self, info, id):
+        return Invite.objects.get(pk=id)
 
     def resolve_invites(self, info):
         return Invite.objects.all()

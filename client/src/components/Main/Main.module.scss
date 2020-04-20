@@ -1,0 +1,5 @@
+@import "../../styles/common";
+
+.mainDiv {
+  @include tachyons(pa3);
+}

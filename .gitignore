@@ -5,4 +5,5 @@ bin/
 include/
 lib/
 *.sqlite3
+.DS_Store
 

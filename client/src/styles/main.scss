@@ -1,0 +1,8 @@
+@import "./_common.scss";
+@import "~tachyons-sass/tachyons";
+
+body {
+  -webkit-font-smoothing: antialiased;
+  font-family: "Open Sans", Helvetica, sans-serif;
+  color: $darkText;
+}
