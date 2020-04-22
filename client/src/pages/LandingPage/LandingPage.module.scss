@@ -1,0 +1,43 @@
+@import "../../styles/common";
+
+.landingPageDiv {
+  //   background-image: url("../../assets/backgrounds/images/watercolorpaper.jpg");
+  //   background-image: url("../../assets/backgrounds/images/ink4.jpg");
+  background-repeat: repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.menu {
+  background-color: transparent;
+  //   border-bottom: ;
+}
+
+.titleDiv {
+  @include tachyons(flex f1 tc);
+  background-color: white;
+  opacity: 0.5;
+  margin: 20px;
+  padding: 20px;
+}
+
+.carouselImage1 {
+  background-image: url("../../assets/carousel/1.png");
+  height: calc(100vh - 69px);
+  background-size: cover;
+  background-position-x: center;
+}
+
+.carouselImage2 {
+  background-image: url("../../assets/carousel/2.png");
+  height: calc(100vh - 69px);
+  background-size: cover;
+  background-position-x: center;
+}
+
+.carouselImage3 {
+  background-image: url("../../assets/carousel/3.png");
+  height: calc(100vh - 69px);
+  background-size: cover;
+  background-position-x: center;
+}

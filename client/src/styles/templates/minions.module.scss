@@ -1,0 +1,23 @@
+@import "./common.scss";
+
+.inviteMainDiv {
+  @include tachyons(cover);
+  background-image: url("../../assets/backgrounds/images/dark.jpg");
+}
+
+.inviteInfo {
+  @include tachyons(absolute tc);
+  top: 30%;
+  width: 55%;
+  margin-left: rem(10);
+}
+
+.title {
+  @include tachyons(f1);
+  font-family: "Luckiest Guy", cursive;
+  color: $darkOrange;
+}
+
+.desc {
+  @include tachyons(f6);
+}

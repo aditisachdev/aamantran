@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Query } from "react-apollo";
 import { map } from "lodash";
 import { gql } from "apollo-boost";
 import { withRouter } from "react-router-dom";
+import { AppContext } from "../../../Root";
 import styles from "./ListInvites.module.scss";
 
 const GET_INVITES_QUERY = gql`
@@ -20,17 +21,20 @@ const GET_INVITES_QUERY = gql`
 `;
 
 const ListInvites = withRouter(({ history }) => {
+  const { setHeaderTitle } = useContext(AppContext);
+  // setHeaderTitle("Home123");
   return (
     <Query query={GET_INVITES_QUERY}>
       {({ data, loading, error }) => {
         if (loading) return <div>Loading</div>;
         if (error) return <div>Error</div>;
 
-        return map(data.invites, invite => {
+        return map(data.invites, (invite, index) => {
           return (
             <div
               className={styles.inviteListing}
               onClick={() => history.push(`/invite/${invite.id}`)}
+              key={`Invite-${index}`}
             >
               {invite.title}
             </div>

@@ -1,5 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import { ApolloProvider } from "react-apollo";
 import "./styles/main.scss";
 import "element-theme-default";
 import { i18n } from "element-react";
@@ -7,11 +10,12 @@ import locale from "element-react/src/locale/lang/en";
 
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
-import Auth from "./components/Auth";
+import LandingPage from "./pages/LandingPage";
+import Login from "./components/Auth/Login";
+import Register from "./components/Auth/Register";
 import Root from "./Root";
 import * as serviceWorker from "./serviceWorker";
 
-import { ApolloProvider } from "react-apollo";
 import ApolloClient from "apollo-boost";
 
 i18n.use(locale);
@@ -44,15 +48,21 @@ const IS_LOGGED_IN_QUERY = gql`
   }
 `;
 
-export const AppContext = React.createContext({
-  currentUser: undefined
-});
-
 ReactDOM.render(
   <ApolloProvider client={client}>
     <Query query={IS_LOGGED_IN_QUERY}>
       {({ data }) => {
-        return data.isLoggedIn ? <Root /> : <Auth />;
+        return data.isLoggedIn ? (
+          <Root />
+        ) : (
+          <Router>
+            <Switch>
+              <Route exact path="/" component={LandingPage} />
+              <Route path="/login" component={Login} />
+              <Route path="/signup" component={Register} />
+            </Switch>
+          </Router>
+        );
       }}
     </Query>
   </ApolloProvider>,

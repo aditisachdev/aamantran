@@ -1,20 +1,24 @@
 import React from "react";
+import { AppContext } from "../../../Root";
 import { Link } from "react-router-dom";
-import { Button } from "element-react";
 import Signout from "../../Auth/Signout";
 import styles from "./Header.module.scss";
-import withStyles from "@material-ui/core/styles/withStyles";
 
-const Header = ({ classes }) => {
+const Header = ({ classes, headerBarTitle }) => {
   return (
-    <div className={styles.header}>
-      <div>
-        <Link to="/">The Pine Tree</Link>
-      </div>
-      <div>
-        <Signout />
-      </div>
-    </div>
+    <AppContext.Consumer>
+      {({ headerBarTitle }) => (
+        <div className={styles.header}>
+          <div>
+            <Link to="/">The Pine Tree</Link>
+          </div>
+          <div>{headerBarTitle}</div>
+          <div>
+            <Signout />
+          </div>
+        </div>
+      )}
+    </AppContext.Consumer>
   );
 };
 

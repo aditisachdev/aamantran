@@ -1,15 +1,13 @@
 import React from "react";
 import { ApolloConsumer } from "react-apollo";
 import { Button } from "element-react";
-import withStyles from "@material-ui/core/styles/withStyles";
-// import ExitToApp from "@material-ui/icons/ExitToApp";
-// import Typography from "@material-ui/core/Typography";
-// import Button from "@material-ui/core/Button";
+import { withRouter } from "react-router-dom";
 
-const Signout = ({ classes }) => {
+const Signout = withRouter(({ classes, history }) => {
   const handleSignout = client => {
     localStorage.removeItem("authToken");
     client.writeData({ data: { isLoggedIn: false } });
+    history.push("/");
   };
 
   return (
@@ -23,16 +21,6 @@ const Signout = ({ classes }) => {
       }}
     </ApolloConsumer>
   );
-};
+});
 
-const styles = {
-  root: {
-    cursor: "pointer",
-    display: "flex"
-  },
-  buttonIcon: {
-    marginLeft: "5px"
-  }
-};
-
-export default withStyles(styles)(Signout);
+export default Signout;

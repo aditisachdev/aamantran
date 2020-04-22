@@ -1,18 +1,25 @@
 @import "../../../styles/common";
 
 .inviteMainDiv {
-  @include tachyons(flex justify-center);
+  @include not-small {
+    @include tachyons(flex justify-center);
+  }
 }
 
 .invitePaper {
-  @include tachyons(absolute);
-}
-
-.inviteInfo {
   @include tachyons(relative);
 }
 
+.inviteInfo {
+  @include tachyons(absolute);
+}
+
 .inviteDesignPaper {
-  width: calc(90vh - 98px);
-  height: calc(90vh - 98px);
+  width: calc(100vw);
+  height: calc(100vw);
+
+  @include not-small {
+    width: calc(95vh - 98px);
+    height: calc(95vh - 98px);
+  }
 }
