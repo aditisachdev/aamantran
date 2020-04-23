@@ -2,22 +2,35 @@
 
 .inviteMainDiv {
   @include tachyons(cover);
-  background-image: url("../../assets/backgrounds/images/dark.jpg");
+  // background-image: url("../../assets/images/minions.jpg");
 }
 
 .inviteInfo {
-  @include tachyons(absolute tc);
-  top: 30%;
-  width: 55%;
-  margin-left: rem(10);
+  @include tachyons(absolute tc pa5);
+  top: 35%;
+  width: 100%;
+  background-color: $translucentWhiteOverlay;
 }
 
 .title {
   @include tachyons(f1);
-  font-family: "Luckiest Guy", cursive;
-  color: $darkOrange;
+  font-family: "Stalemate", cursive;
+  color: $black;
+  @include not-small {
+    font-size: 4rem;
+  }
 }
 
 .desc {
-  @include tachyons(f6);
+  @include tachyons(f3);
+  font-family: "EB Garamond", serif;
+  @include not-small {
+    font-size: 2rem;
+  }
+}
+
+.backgroundInviteDiv {
+  background-image: url("../../assets/images/minions.jpg");
+  background-size: cover;
+  background-position: 50% 50%;
 }

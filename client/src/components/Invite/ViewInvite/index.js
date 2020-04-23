@@ -23,22 +23,31 @@ const GET_INVITE_QUERY = gql`
 
 const ViewInvite = ({ match }) => {
   const [designPaperData, setDesignPaperData] = useState(<></>);
+  const [designBackgroundData, setDesignBackgroundData] = useState(<></>);
   const [templateStyle, setTemplateStyle] = useState({});
 
-  const getInviteImage = async imageFile => {
-    const res = await import(
-      /* webpackMode: "eager" */ `../../../assets/images/${imageFile}`
-    ).then(src => {
-      return (
-        <img
-          src={src.default}
-          className={styles.inviteDesignPaper}
-          height={100}
-          width={100}
-        />
-      );
-    });
-    setDesignPaperData(res);
+  const getInviteImage = async invite => {
+    const imageFile = invite.designPaper;
+    // const res = await import(
+    //   /* webpackMode: "eager" */ `../../../assets/images/${imageFile}`
+    // ).then(src => {
+    //   // return <img src={src.default} className={styles.inviteDesignPaper} />;
+    //   return (
+    //     <div
+    //       // style={{ backgroundImage: src.default, backgroundSize: "cover" }}
+    //       className={cx(
+    //         styles.backgroundInviteDiv,
+    //         templateStyle.backgroundInviteDiv
+    //       )}
+    //     >
+    //       <div className={templateStyle.title}>{invite.title}</div>
+    //       <div className={templateStyle.desc}>{invite.desc}</div>
+    //     </div>
+    //   );
+    // });
+    // // setDesignPaperData(res);
+    // console.log("res:", res);
+    // setDesignBackgroundData(res);
 
     const cssFileName = imageFile.replace(".jpg", "");
 
@@ -58,7 +67,7 @@ const ViewInvite = ({ match }) => {
       query={GET_INVITE_QUERY}
       variables={{ id: match.params.id }}
       onCompleted={data => {
-        getInviteImage(data.invite.designPaper);
+        getInviteImage(data.invite);
       }}
       notifyOnNetworkStatusChange
     >
@@ -72,11 +81,30 @@ const ViewInvite = ({ match }) => {
           <div
             className={cx(styles.inviteMainDiv, templateStyle.inviteMainDiv)}
           >
-            <div className={styles.invitePaper}>
+            {/* <div className={styles.invitePaper}>
               {designPaperData}
               <div className={templateStyle.inviteInfo}>
                 <div className={templateStyle.title}>{invite.title}</div>
                 <div className={templateStyle.desc}>{invite.desc}</div>
+              </div>
+            </div> */}
+            <div
+              // style={{ backgroundImage: src.default, backgroundSize: "cover" }}
+              className={cx(
+                styles.backgroundInviteDiv,
+                templateStyle.backgroundInviteDiv
+              )}
+            >
+              <div className={templateStyle.inviteInfo}>
+                <div className={templateStyle.title}>{invite.title}</div>
+                <div className={templateStyle.desc}>{invite.desc}</div>
+              </div>
+            </div>
+            <div className={styles.inviteAuxilliaryInfo}>
+              <div className={styles.inviteAuxilliaryContent}>
+                <div>A</div>
+                <div>Address</div>
+                <div>Contact Info</div>
               </div>
             </div>
           </div>

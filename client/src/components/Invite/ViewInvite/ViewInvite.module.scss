@@ -1,9 +1,35 @@
 @import "../../../styles/common";
 
 .inviteMainDiv {
+  height: calc(100vh - 71px);
+  width: auto;
+
   @include not-small {
-    @include tachyons(flex justify-center);
+    @include tachyons(flex justify-center flex-column1);
   }
+}
+
+.backgroundInviteDiv {
+  background-position: 0% 0%;
+  // height: calc(90vh - 71px);
+  height: 100%;
+  width: 100%;
+}
+
+.inviteAuxilliaryInfo {
+  // background-color: aqua;
+  // height: 10vh;
+  @include tachyons(absolute);
+  bottom: 0%;
+  width: 100%;
+  height: 10%;
+  background-color: $darkBrown;
+  opacity: 0.65;
+  color: white;
+}
+
+.inviteAuxilliaryContent {
+  @include tachyons(flex flex-row justify-between);
 }
 
 .invitePaper {
@@ -15,11 +41,11 @@
 }
 
 .inviteDesignPaper {
-  width: calc(100vw);
-  height: calc(100vw);
+  width: auto;
+  // height: calc(100vh-$topNavbarHeight);
 
-  @include not-small {
-    width: calc(95vh - 98px);
-    height: calc(95vh - 98px);
-  }
+  // @include not-small {
+  //   width: calc(95vh - 98px);
+  //   height: calc(95vh - 98px);
+  // }
 }
