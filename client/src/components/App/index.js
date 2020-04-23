@@ -3,14 +3,14 @@ import { Layout } from "element-react";
 import CreateInviteButton from "../Invite/CreateInviteButton";
 import ListInvites from "../Invite/ListInvites";
 
-const App = ({ classes }) => {
+const App = ({ classes, history }) => {
   return (
     <>
       <Layout.Row>
         <CreateInviteButton />
       </Layout.Row>
       <Layout.Row>
-        <ListInvites />
+        <ListInvites history={history} />
       </Layout.Row>
     </>
   );

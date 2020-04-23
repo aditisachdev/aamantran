@@ -1,0 +1,6 @@
+@import "../../../styles/common";
+
+.mainNavbarDiv {
+  @include tachyons(flex justify-between items-center bb b--white-10 pa2);
+  box-shadow: 0 2px 8px darkgrey;
+}

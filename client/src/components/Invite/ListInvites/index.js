@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { Query } from "react-apollo";
 import { map } from "lodash";
 import { gql } from "apollo-boost";
-import { withRouter } from "react-router-dom";
 import { AppContext } from "../../../Root";
 import styles from "./ListInvites.module.scss";
 
@@ -20,7 +19,7 @@ const GET_INVITES_QUERY = gql`
   }
 `;
 
-const ListInvites = withRouter(({ history }) => {
+const ListInvites = ({ history }) => {
   const { setHeaderTitle } = useContext(AppContext);
   // setHeaderTitle("Home123");
   return (
@@ -43,6 +42,6 @@ const ListInvites = withRouter(({ history }) => {
       }}
     </Query>
   );
-});
+};
 
 export default ListInvites;

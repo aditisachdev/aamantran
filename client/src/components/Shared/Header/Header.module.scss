@@ -1,6 +1,0 @@
-@import "../../../styles/common";
-
-.header {
-  @include tachyons(flex pa4 justify-between);
-  background-color: $header;
-}

@@ -3,7 +3,9 @@ import { Mutation } from "react-apollo";
 import { gql } from "apollo-boost";
 
 import { Button, Form, Input } from "element-react";
-import Error from "../Shared/Error";
+import Error from "../../Shared/Error";
+import FormsPageLayout from "../FormsPageLayout";
+import styles from "./Register.module.scss";
 
 const REGISTER_MUTATION = gql`
   mutation($username: String!, $password: String!, $email: String!) {
@@ -38,12 +40,12 @@ const Register = ({ classes, setNewUser, history }) => {
     >
       {(createUser, { loading, error }) => {
         return (
-          <>
-            <h2>Register new user</h2>
+          <FormsPageLayout title="Register">
             <Form
               model={{ username, password, email }}
               labelWidth="120"
               onSubmit={event => submitForm(event, createUser)}
+              labelPosition="top"
             >
               <Form.Item label="Username">
                 <Input
@@ -72,25 +74,29 @@ const Register = ({ classes, setNewUser, history }) => {
                 />
               </Form.Item>
               <Form.Item>
-                <Button
-                  nativeType="submit"
-                  disabled={
-                    loading ||
-                    !username.trim() ||
-                    !password.trim() ||
-                    !email.trim()
-                  }
-                >
-                  {loading ? "Registering..." : "Register"}
-                </Button>
-                Existing user? Sign in{" "}
-                <Button type="text" onClick={() => history.push("/login")}>
-                  here
-                </Button>
+                <div className={styles.registerButtonDiv}>
+                  <Button
+                    nativeType="submit"
+                    disabled={
+                      loading ||
+                      !username.trim() ||
+                      !password.trim() ||
+                      !email.trim()
+                    }
+                  >
+                    {loading ? "Registering..." : "Register"}
+                  </Button>
+                </div>
+                <div className={styles.registerButtonDiv}>
+                  Existing user? Sign in&nbsp;
+                  <Button type="text" onClick={() => history.push("/login")}>
+                    here
+                  </Button>
+                </div>
               </Form.Item>
               {error && <Error error={error} />}
             </Form>
-          </>
+          </FormsPageLayout>
         );
       }}
     </Mutation>

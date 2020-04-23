@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import { AppContext } from "../../../Root";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
-import { withRouter } from "react-router-dom";
 
 import cx from "classnames";
 import styles from "./ViewInvite.module.scss";
@@ -15,13 +14,14 @@ const GET_INVITE_QUERY = gql`
       desc
       designPaper
       createdBy {
+        id
         username
       }
     }
   }
 `;
 
-const ViewInvite = withRouter(({ match }) => {
+const ViewInvite = ({ match }) => {
   const [designPaperData, setDesignPaperData] = useState(<></>);
   const [templateStyle, setTemplateStyle] = useState({});
 
@@ -84,6 +84,6 @@ const ViewInvite = withRouter(({ match }) => {
       }}
     </Query>
   );
-});
+};
 
 export default ViewInvite;

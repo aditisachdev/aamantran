@@ -1,0 +1,10 @@
+@import "../../../styles/common";
+
+.LoginForm {
+  @include tachyons(flex items-center);
+  height: 100vh;
+}
+
+.loginButtonDiv {
+  @include tachyons(flex justify-center);
+}

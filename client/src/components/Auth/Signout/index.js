@@ -1,9 +1,8 @@
 import React from "react";
-import { ApolloConsumer } from "react-apollo";
-import { Button } from "element-react";
 import { withRouter } from "react-router-dom";
+import TopNavbarButton from "../../Shared/TopNavbarButton";
 
-const Signout = withRouter(({ classes, history }) => {
+const Signout = withRouter(({ classes, client, history }) => {
   const handleSignout = client => {
     localStorage.removeItem("authToken");
     client.writeData({ data: { isLoggedIn: false } });
@@ -11,15 +10,9 @@ const Signout = withRouter(({ classes, history }) => {
   };
 
   return (
-    <ApolloConsumer>
-      {client => {
-        return (
-          <Button type="text" onClick={event => handleSignout(client)}>
-            Signout
-          </Button>
-        );
-      }}
-    </ApolloConsumer>
+    <TopNavbarButton onClick={event => handleSignout(client)}>
+      Signout
+    </TopNavbarButton>
   );
 });
 

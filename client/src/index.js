@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { createBrowserHistory } from "history";
 
 import { ApolloProvider } from "react-apollo";
 import "./styles/main.scss";
@@ -14,9 +15,13 @@ import LandingPage from "./pages/LandingPage";
 import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
 import Root from "./Root";
+import CreateInvite from "./components/Invite/CreateInvite";
+import ViewInvite from "./components/Invite/ViewInvite";
+import Profile from "./components/Profile";
 import * as serviceWorker from "./serviceWorker";
 
 import ApolloClient from "apollo-boost";
+import TopNavbar from "./components/Shared/TopNavbar";
 
 i18n.use(locale);
 
@@ -48,19 +53,35 @@ const IS_LOGGED_IN_QUERY = gql`
   }
 `;
 
+const history = createBrowserHistory();
+
 ReactDOM.render(
   <ApolloProvider client={client}>
     <Query query={IS_LOGGED_IN_QUERY}>
       {({ data }) => {
-        return data.isLoggedIn ? (
-          <Root />
-        ) : (
-          <Router>
-            <Switch>
-              <Route exact path="/" component={LandingPage} />
-              <Route path="/login" component={Login} />
-              <Route path="/signup" component={Register} />
-            </Switch>
+        const { isLoggedIn } = data;
+        return (
+          <Router history={history}>
+            <>
+              <TopNavbar isLoggedIn={isLoggedIn} client={client} />
+              <Switch>
+                <Route exact path="/" component={LandingPage} />
+                <Route path="/login" component={Login} />
+                <Route path="/signup" component={Register} />
+                {isLoggedIn && (
+                  <Switch>
+                    <Route exact path="/home" component={Root} />
+                    <Route exact path="/profile/:id" component={Profile} />
+                    <Route
+                      exact
+                      path="/createinvite"
+                      component={CreateInvite}
+                    />
+                    <Route exact path="/invite/:id" component={ViewInvite} />
+                  </Switch>
+                )}
+              </Switch>
+            </>
           </Router>
         );
       }}

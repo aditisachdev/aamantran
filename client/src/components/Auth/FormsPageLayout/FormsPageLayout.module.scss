@@ -1,0 +1,14 @@
+@import "../../../styles/common";
+
+.formsDiv {
+  @include tachyons(flex flex-column items-center justify-center);
+  height: 60vh;
+}
+
+.title {
+  @include tachyons(tc mb4);
+}
+
+.card {
+  width: 28%;
+}

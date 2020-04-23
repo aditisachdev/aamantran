@@ -1,0 +1,5 @@
+@import "../../../styles/common";
+
+.topNavbarButton {
+  @include tachyons(flex-end);
+}
