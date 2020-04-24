@@ -1,0 +1,44 @@
+[
+  {
+    "model": "invites.invite",
+    "pk": 1,
+    "fields": {
+      "title": "Kabir turns 1 !",
+      "desc": "Please grace us with your presence to celebrate as our little bundle turns 1",
+      "design_paper": "donut_with_sprinkles",
+      "event_datetime": "2019-04-01T11:30:00.285Z",
+      "address": "215/216 A Suyog D.K.Sandu Marg, Chembur, Mumbai 400071",
+      "contact_phone_number": "974.005.0066",
+      "created_at": "2020-04-14T09:22:35.517Z",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "invites.invite",
+    "pk": 2,
+    "fields": {
+      "title": "Leena's baby shower",
+      "desc": "Please grace us as we prepare for the arrival of our little bundle of joy",
+      "design_paper": "baby_feet",
+      "event_datetime": "2020-06-28T09:30:00.285Z",
+      "address": "#701, 1415 Pine Street, Seattle WA 98101",
+      "contact_phone_number": "919-457-8228",
+      "created_at": "2020-04-24T09:12:45.097Z",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "invites.invite",
+    "pk": 3,
+    "fields": {
+      "title": "Our 25th Anniversary",
+      "desc": "It's been 25 beautiful years, and we can't wait to celebrate with all of you! ",
+      "design_paper": "elegant_teacup",
+      "event_datetime": "2018-05-22T11:00:00.285Z",
+      "address": "Party Hall Ganga, Chembur Gymkhana, 16th Road, Chembur, Mumbai 400071",
+      "contact_phone_number": "+91 98200 60751",
+      "created_at": "2020-04-24T09:18:05.097Z",
+      "created_by": 1
+    }
+  }
+]
