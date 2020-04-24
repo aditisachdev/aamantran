@@ -72,27 +72,6 @@
   }
 }
 
-// Don't use for multiple tachyons (i.e different sizes because the ordering will be wrong
-@mixin new-single-tachyon {
-  @content;
-
-  @include not-small {
-    &-ns {
-      @content;
-    }
-  }
-  @include medium {
-    &-m {
-      @content;
-    }
-  }
-  @include large {
-    &-l {
-      @content;
-    }
-  }
-}
-
 // Screen Readers Only
 // https://github.com/twbs/bootstrap/blob/master/scss/mixins/_screen-reader.scss
 
@@ -126,16 +105,4 @@
     clip: auto;
     white-space: normal;
   }
-}
-
-// Hides scrollbars on Safari & Chrome
-// Currently, there is no way to hide scrollbars in Firefox
-@mixin hide-scrollbar {
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
-
-@mixin no-selection {
-  user-select: none;
 }

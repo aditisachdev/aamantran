@@ -1,16 +1,13 @@
 @import "../../styles/common";
 
 .landingPageDiv {
-  //   background-image: url("../../assets/backgrounds/images/watercolorpaper.jpg");
-  //   background-image: url("../../assets/backgrounds/images/ink4.jpg");
   background-repeat: repeat;
   background-size: cover;
-  height: 100vh;
+  height: calc(100vh - #{$topNavbarHeight});
 }
 
 .menu {
   background-color: transparent;
-  //   border-bottom: ;
 }
 
 .titleDiv {

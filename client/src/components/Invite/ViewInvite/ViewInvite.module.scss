@@ -6,7 +6,7 @@
 }
 
 .inviteMainDiv {
-  height: calc(100vh - 71px);
+  height: calc(100vh - #{$topNavbarHeight});
   width: auto;
 
   @include not-small {
