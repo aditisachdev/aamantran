@@ -1,7 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import { gql } from "apollo-boost";
 import { map } from "lodash";
 import { Query } from "react-apollo";
+import { Layout } from "element-react";
 import styles from "./ListInvites.module.scss";
 
 const GET_INVITES_QUERY = gql`
@@ -27,13 +28,16 @@ const ListInvites = ({ history }) => {
 
         return map(data.invites, (invite, index) => {
           return (
-            <div
-              className={styles.inviteListing}
-              onClick={() => history.push(`/invite/${invite.id}`)}
-              key={`Invite-${index}`}
-            >
-              {invite.title}
-            </div>
+            <Layout.Row gutter="10" key={`Invite-${index}`}>
+              <Layout.Col span={12} offset={6}>
+                <div
+                  className={styles.inviteListing}
+                  onClick={() => history.push(`/invite/${invite.id}`)}
+                >
+                  {invite.title}
+                </div>
+              </Layout.Col>
+            </Layout.Row>
           );
         });
       }}

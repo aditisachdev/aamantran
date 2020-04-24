@@ -1,5 +1,5 @@
 @import "../../../styles/common";
 
 .inviteListing {
-  @include tachyons(pa3 outline);
+  @include tachyons(pa4 mv3 b--light-silver shadow-5 pointer);
 }

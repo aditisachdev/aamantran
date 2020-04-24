@@ -3,11 +3,13 @@ import { Layout } from "element-react";
 import CreateInviteButton from "../Invite/CreateInviteButton";
 import ListInvites from "../Invite/ListInvites";
 
-const App = ({ classes, history }) => {
+const App = ({ history }) => {
   return (
     <>
-      <Layout.Row>
-        <CreateInviteButton />
+      <Layout.Row gutter="10">
+        <Layout.Col span={12} offset={6}>
+          <CreateInviteButton size="large" />
+        </Layout.Col>
       </Layout.Row>
       <Layout.Row>
         <ListInvites history={history} />
