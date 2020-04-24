@@ -10,7 +10,7 @@ const TopNavbar = withRouter(({ history, isLoggedIn, client }) => {
     <nav className={styles.mainNavbarDiv}>
       <div>
         <Link to={!isLoggedIn ? "/" : "/home"}>
-          <img src={LogoImg} height={50}></img>
+          <img src={LogoImg} height={50} alt="logoImage"></img>
         </Link>
       </div>
       {!isLoggedIn && (
