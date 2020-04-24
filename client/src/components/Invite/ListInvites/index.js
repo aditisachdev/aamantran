@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
-import { Query } from "react-apollo";
-import { map } from "lodash";
 import { gql } from "apollo-boost";
-import { AppContext } from "../../../Root";
+import { map } from "lodash";
+import { Query } from "react-apollo";
 import styles from "./ListInvites.module.scss";
 
 const GET_INVITES_QUERY = gql`
@@ -20,8 +19,6 @@ const GET_INVITES_QUERY = gql`
 `;
 
 const ListInvites = ({ history }) => {
-  const { setHeaderTitle } = useContext(AppContext);
-  // setHeaderTitle("Home123");
   return (
     <Query query={GET_INVITES_QUERY}>
       {({ data, loading, error }) => {

@@ -1,23 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { Button, Carousel } from "element-react";
+import { Carousel } from "element-react";
 import CarouselImage1 from "../../assets/carousel/1.png";
 import CarouselImage2 from "../../assets/carousel/2.png";
 import CarouselImage3 from "../../assets/carousel/3.png";
-import LogoImg from "../../assets/logo/logo.png";
 import styles from "./LandingPage.module.scss";
-import TopNavbar from "../../components/Shared/TopNavbar";
 
-const LandingPage = ({ history }) => {
+const LandingPage = () => {
   const [windowHeight, setWindowHeight] = useState("0px");
   useEffect(() => {
-    // Update the document title using the browser API
     setWindowHeight(`${window.innerHeight.toString() - 69}px`);
   });
 
   return (
     <div className={styles.landingPageDiv}>
-      {/* <Auth /> */}
       <Carousel interval="4000" height={windowHeight}>
         {[CarouselImage1, CarouselImage2, CarouselImage3].map((item, index) => {
           return (

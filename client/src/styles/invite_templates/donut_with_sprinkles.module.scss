@@ -1,16 +1,12 @@
 @import "./common.scss";
 
-.inviteMainDiv {
-  @include tachyons(cover);
-  // background-image: url("../../assets/images/minions.jpg");
-}
+// Use this file to override the style for this design
 
 .inviteInfo {
   @include tachyons(absolute tc pa5);
   top: 35%;
   width: 100%;
   background-color: $translucentWhiteOverlay;
-  //   opacity: 0.65;
 }
 
 .title {
@@ -35,18 +31,10 @@
 
 .backgroundInviteDiv {
   background-image: url("../../assets/images/donut_with_sprinkles.jpg");
-  background-size: cover;
   background-position: 50% 50%;
 }
 
 .inviteAuxilliaryInfo {
-  // background-color: aqua;
-  // height: 10vh;
-  //   @include tachyons(absolute);
-  //   bottom: 0%;
-  //   width: 100%;
-  //   height: 10%;
   background-color: $pineGreen;
-  //   opacity: 0.65;
   color: white;
 }

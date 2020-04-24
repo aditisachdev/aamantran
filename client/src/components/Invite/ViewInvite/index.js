@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { Query } from "react-apollo";
+import cx from "classnames";
 import { gql } from "apollo-boost";
+import { Query } from "react-apollo";
+
 import { formateDate, formatTime } from "../../../helpers/date";
 import { ReactComponent as ClockIcon } from "../../../assets/icons/clock.svg";
 import { ReactComponent as MapIcon } from "../../../assets/icons/map-marker.svg";
 import { ReactComponent as PhoneIcon } from "../../../assets/icons/phone.svg";
 
-import cx from "classnames";
 import styles from "./ViewInvite.module.scss";
 
 const GET_INVITE_QUERY = gql`
@@ -40,7 +41,7 @@ const ViewInvite = ({ match }) => {
   };
 
   return (
-    // Setting the notifyOnNetworkStatusChange prop since otherwise, I'm facing an issue where onCompleted event isnt fired
+    // Setting the notifyOnNetworkStatusChange prop since otherwise, I'm running into an issue where onCompleted event isn't fired
     // https://github.com/apollographql/react-apollo/issues/2293
     <Query
       query={GET_INVITE_QUERY}

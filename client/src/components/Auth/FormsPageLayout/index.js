@@ -3,7 +3,7 @@ import cx from "classnames";
 import { Card } from "element-react";
 import styles from "./FormsPageLayout.module.scss";
 
-const FormsPageLayout = ({ history, children, title }) => {
+const FormsPageLayout = ({ children, title }) => {
   return (
     <div className={styles.formsDiv}>
       <Card className={cx(styles.card, "box-card")}>

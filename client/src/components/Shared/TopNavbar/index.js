@@ -1,16 +1,16 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import LogoImg from "../../../assets/logo/logo.png";
-import styles from "./TopNavbar.module.scss";
 import Signout from "../../Auth/Signout";
 import TopNavbarButton from "../TopNavbarButton";
+import styles from "./TopNavbar.module.scss";
 
 const TopNavbar = withRouter(({ history, isLoggedIn, client }) => {
   return (
     <nav className={styles.mainNavbarDiv}>
       <div>
         <Link to={!isLoggedIn ? "/" : "/home"}>
-          <img src={LogoImg} height="50"></img>
+          <img src={LogoImg} height={50}></img>
         </Link>
       </div>
       {!isLoggedIn && (

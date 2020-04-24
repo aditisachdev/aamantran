@@ -1,27 +1,22 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { ApolloProvider, Query } from "react-apollo";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { createBrowserHistory } from "history";
-
-import { ApolloProvider } from "react-apollo";
-import "./styles/main.scss";
 import "element-theme-default";
 import { i18n } from "element-react";
 import locale from "element-react/src/locale/lang/en";
-
-import { Query } from "react-apollo";
+import ApolloClient from "apollo-boost";
 import { gql } from "apollo-boost";
-import LandingPage from "./pages/LandingPage";
+
 import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
-import Root from "./Root";
 import CreateInvite from "./components/Invite/CreateInvite";
 import ViewInvite from "./components/Invite/ViewInvite";
-import Profile from "./components/Profile";
-import * as serviceWorker from "./serviceWorker";
-
-import ApolloClient from "apollo-boost";
 import TopNavbar from "./components/Shared/TopNavbar";
+import LandingPage from "./pages/LandingPage";
+import Root from "./Root";
+import * as serviceWorker from "./serviceWorker";
+import "./styles/main.scss";
 
 i18n.use(locale);
 
@@ -53,15 +48,13 @@ const IS_LOGGED_IN_QUERY = gql`
   }
 `;
 
-const history = createBrowserHistory();
-
 ReactDOM.render(
   <ApolloProvider client={client}>
     <Query query={IS_LOGGED_IN_QUERY}>
       {({ data }) => {
         const { isLoggedIn } = data;
         return (
-          <Router history={history}>
+          <Router>
             <>
               <TopNavbar isLoggedIn={isLoggedIn} client={client} />
               <Switch>
@@ -71,7 +64,6 @@ ReactDOM.render(
                 {isLoggedIn && (
                   <Switch>
                     <Route exact path="/home" component={Root} />
-                    <Route exact path="/profile/:id" component={Profile} />
                     <Route
                       exact
                       path="/createinvite"

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Mutation } from "react-apollo";
 import { gql } from "apollo-boost";
-
 import { Button, Form, Input } from "element-react";
+import { Mutation } from "react-apollo";
+
 import Error from "../../Shared/Error";
 import FormsPageLayout from "../FormsPageLayout";
 import styles from "./Register.module.scss";
@@ -20,7 +20,7 @@ const REGISTER_MUTATION = gql`
   }
 `;
 
-const Register = ({ classes, setNewUser, history }) => {
+const Register = ({ history }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -34,9 +34,6 @@ const Register = ({ classes, setNewUser, history }) => {
     <Mutation
       mutation={REGISTER_MUTATION}
       variables={{ username, password, email }}
-      onCompleted={data => {
-        // setNewUser(false);
-      }}
     >
       {(createUser, { loading, error }) => {
         return (

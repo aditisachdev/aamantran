@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import cx from "classnames";
-import { Mutation } from "react-apollo";
 import { gql } from "apollo-boost";
+import { Button, Input, Form } from "element-react";
+import { Mutation } from "react-apollo";
 
-import { Button, Input, Form, Layout } from "element-react";
 import FormsPageLayout from "../FormsPageLayout";
 import Error from "../../Shared/Error";
 import styles from "./Login.module.scss";
@@ -16,7 +16,7 @@ const LOGIN_MUTATION = gql`
   }
 `;
 
-const Login = ({ classes, setNewUser, history }) => {
+const Login = ({ history }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 

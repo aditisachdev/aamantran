@@ -1,9 +1,6 @@
 @import "./common.scss";
 
-.inviteMainDiv {
-  @include tachyons(cover);
-  // background-image: url("../../assets/images/minions.jpg");
-}
+// Use this file to override the style for this design
 
 .inviteInfo {
   @include tachyons(absolute tc pa5);
@@ -34,7 +31,6 @@
 
 .backgroundInviteDiv {
   background-image: url("../../assets/images/baby_feet.jpg");
-  background-size: cover;
   background-position: 50% 50%;
 }
 

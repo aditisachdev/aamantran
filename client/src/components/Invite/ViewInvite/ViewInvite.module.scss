@@ -15,22 +15,16 @@
 }
 
 .backgroundInviteDiv {
-  background-position: 0% 0%;
-  // height: calc(90vh - 71px);
   height: 100%;
   width: 100%;
+  background-size: cover;
 }
 
 .inviteAuxilliaryInfo {
-  // background-color: aqua;
-  // height: 10vh;
   @include tachyons(absolute);
   bottom: 0%;
   width: 100%;
   height: 10%;
-  // background-color: $darkBrown;
-  // opacity: 0.65;
-  // color: white;
 }
 
 .inviteAuxilliaryContent {
@@ -60,10 +54,4 @@
 
 .inviteDesignPaper {
   width: auto;
-  // height: calc(100vh-$topNavbarHeight);
-
-  // @include not-small {
-  //   width: calc(95vh - 98px);
-  //   height: calc(95vh - 98px);
-  // }
 }
