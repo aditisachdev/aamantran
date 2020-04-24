@@ -11,6 +11,9 @@ class Invite(models.Model):
     design_paper = models.CharField(
         choices=DESIGN_PAPER_CHOICES, max_length=100, null=True
     )
+    event_datetime = models.DateTimeField(null=True)
+    address = models.TextField(blank=True)
+    contact_phone_number = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     created_by = models.ForeignKey(
         get_user_model(), null=True, on_delete=models.CASCADE

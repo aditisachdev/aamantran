@@ -2,6 +2,10 @@ import React, { useContext, useState } from "react";
 import { AppContext } from "../../../Root";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
+import { formateDate, formatTime } from "../../../helpers/date";
+import { ReactComponent as ClockIcon } from "../../../assets/icons/clock.svg";
+import { ReactComponent as MapIcon } from "../../../assets/icons/map-marker.svg";
+import { ReactComponent as PhoneIcon } from "../../../assets/icons/phone.svg";
 
 import cx from "classnames";
 import styles from "./ViewInvite.module.scss";
@@ -10,13 +14,16 @@ const GET_INVITE_QUERY = gql`
   query getInvite($id: Int!) {
     invite(id: $id) {
       id
-      title
-      desc
-      designPaper
+      address
+      contactPhoneNumber
       createdBy {
         id
         username
       }
+      desc
+      designPaper
+      eventDatetime
+      title
     }
   }
 `;
@@ -27,7 +34,7 @@ const ViewInvite = ({ match }) => {
   const [templateStyle, setTemplateStyle] = useState({});
 
   const getInviteImage = async invite => {
-    const imageFile = invite.designPaper;
+    const { designPaper } = invite;
     // const res = await import(
     //   /* webpackMode: "eager" */ `../../../assets/images/${imageFile}`
     // ).then(src => {
@@ -49,10 +56,10 @@ const ViewInvite = ({ match }) => {
     // console.log("res:", res);
     // setDesignBackgroundData(res);
 
-    const cssFileName = imageFile.replace(".jpg", "");
+    // const cssFileName = imageFile;
 
     await import(
-      /* webpackMode: "eager" */ `../../../styles/templates/${cssFileName}.module.scss`
+      /* webpackMode: "eager" */ `../../../styles/templates/${designPaper}.module.scss`
     ).then(src => {
       setTemplateStyle(src.default);
     });
@@ -97,14 +104,49 @@ const ViewInvite = ({ match }) => {
             >
               <div className={templateStyle.inviteInfo}>
                 <div className={templateStyle.title}>{invite.title}</div>
-                <div className={templateStyle.desc}>{invite.desc}</div>
+                {/* <div className={templateStyle.desc}>{invite.desc}</div> */}
+                <div className={templateStyle.date}>
+                  {formateDate(invite.eventDatetime)}
+                </div>
               </div>
             </div>
-            <div className={styles.inviteAuxilliaryInfo}>
+            <div
+              className={cx(
+                styles.inviteAuxilliaryInfo,
+                templateStyle.inviteAuxilliaryInfo
+              )}
+            >
               <div className={styles.inviteAuxilliaryContent}>
-                <div>A</div>
-                <div>Address</div>
-                <div>Contact Info</div>
+                <div className={styles.inviteAuxilliaryInfoBlock}>
+                  <PhoneIcon
+                    height={20}
+                    width={20}
+                    style={{ fill: "white", marginRight: "10px" }}
+                  />
+                  <div className={styles.inviteAuxilliaryInfoBlockText}>
+                    {invite.contactPhoneNumber}
+                  </div>
+                </div>
+                <div className={styles.inviteAuxilliaryInfoBlock}>
+                  <ClockIcon
+                    height={20}
+                    width={20}
+                    style={{ fill: "white", marginRight: "10px" }}
+                  />
+                  <div className={styles.inviteAuxilliaryInfoBlockText}>
+                    {formatTime(invite.eventDatetime)}
+                  </div>
+                </div>
+                <div className={styles.inviteAuxilliaryInfoBlock}>
+                  <MapIcon
+                    height={20}
+                    width={20}
+                    style={{ fill: "white", marginRight: "10px" }}
+                  />
+                  <div className={styles.inviteAuxilliaryInfoBlockText}>
+                    {invite.address}
+                  </div>
+                </div>
               </div>
             </div>
           </div>

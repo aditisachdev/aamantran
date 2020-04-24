@@ -1,5 +1,10 @@
 @import "../../../styles/common";
 
+.icons {
+  height: rem(20);
+  width: rem(20);
+}
+
 .inviteMainDiv {
   height: calc(100vh - 71px);
   width: auto;
@@ -23,13 +28,26 @@
   bottom: 0%;
   width: 100%;
   height: 10%;
-  background-color: $darkBrown;
-  opacity: 0.65;
-  color: white;
+  // background-color: $darkBrown;
+  // opacity: 0.65;
+  // color: white;
 }
 
 .inviteAuxilliaryContent {
-  @include tachyons(flex flex-row justify-between);
+  @include tachyons(flex flex-row justify-between h-100 ph2);
+  padding-top: rem(10);
+
+  @include extra-large {
+    padding-top: rem(16);
+  }
+}
+
+.inviteAuxilliaryInfoBlock {
+  @include tachyons(w-33 tc);
+}
+
+.inviteAuxilliaryInfoBlockText {
+  padding-top: rem(2);
 }
 
 .invitePaper {

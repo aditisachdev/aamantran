@@ -1,0 +1,45 @@
+@import "./common.scss";
+
+.inviteMainDiv {
+  @include tachyons(cover);
+  // background-image: url("../../assets/images/minions.jpg");
+}
+
+.inviteInfo {
+  @include tachyons(absolute tc pa5);
+  top: 35%;
+  width: 100%;
+  background-color: $translucentWhiteOverlay;
+}
+
+.title {
+  font-family: "Stalemate", cursive;
+  color: $black;
+  @include not-small {
+    font-size: 4rem;
+  }
+}
+
+.desc,
+.date {
+  font-family: "Raleway", sans-serif;
+  @include not-small {
+    font-size: 1rem;
+  }
+}
+
+.date {
+  @include tachyons(f3);
+}
+
+.backgroundInviteDiv {
+  background-image: url("../../assets/images/baby_feet.jpg");
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.inviteAuxilliaryInfo {
+  background-color: $darkBrown;
+  opacity: 0.65;
+  color: white;
+}

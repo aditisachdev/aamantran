@@ -26,14 +26,36 @@ class CreateInvite(graphene.Mutation):
 
     class Arguments:
         title = graphene.String(required=True)
-        desc = graphene.String()
+        address = graphene.String(required=False)
+        contact_phone_number = graphene.String(required=False)
+        title = graphene.String(required=False)
+        desc = graphene.String(required=False)
+        design_paper = graphene.String(required=False)
+        event_datetime = graphene.DateTime(required=False)
 
-    def mutate(self, info, title, desc):
+    def mutate(
+        self,
+        info,
+        title,
+        address="",
+        contact_phone_number="",
+        desc="",
+        design_paper=None,
+        event_datetime=None,
+    ):
         user = info.context.user
         if user.is_anonymous:
             raise Exception("Sorry, you need to be logged in to create an invite")
 
-        invite = Invite(title=title, desc=desc, created_by=user)
+        invite = Invite(
+            title=title,
+            address=address,
+            contact_phone_number=contact_phone_number,
+            desc=desc,
+            design_paper=design_paper,
+            event_datetime=event_datetime,
+            created_by=user,
+        )
         invite.save()
         return CreateInvite(invite=invite)
 
@@ -43,20 +65,47 @@ class UpdateInvite(graphene.Mutation):
 
     class Arguments:
         invite_id = graphene.Int(required=True)
+        address = graphene.String(required=False)
+        contact_phone_number = graphene.String(required=False)
         title = graphene.String(required=False)
         desc = graphene.String(required=False)
+        design_paper = graphene.String(required=False)
+        event_datetime = graphene.DateTime(required=False)
 
-    def mutate(self, info, invite_id, title=None, desc=None):
+    def mutate(
+        self,
+        info,
+        invite_id,
+        address=None,
+        contact_phone_number=None,
+        desc=None,
+        design_paper=None,
+        event_datetime=None,
+        title=None,
+    ):
         user = info.context.user
         invite = Invite.objects.get(pk=invite_id)
         if invite.created_by != user:
             raise Exception("Only the owner of this invite can edit it. ")
 
-        if title:
-            invite.title = title
+        if address:
+            invite.address = address
+
+        if contact_phone_number:
+            invite.contact_phone_number = contact_phone_number
 
         if desc:
             invite.desc = desc
+
+        if design_paper:
+            invite.design_paper = design_paper
+
+        if event_datetime:
+            invite.event_datetime = event_datetime
+
+        if title:
+            invite.title = title
+
         invite.save()
         return UpdateInvite(invite=invite)
 

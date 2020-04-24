@@ -1,9 +1,9 @@
 @import "./common.scss";
 
-.inviteMainDiv {
-  @include tachyons(cover);
-  // background-image: url("../../assets/images/minions.jpg");
-}
+// .inviteMainDiv {
+//   @include tachyons(cover);
+//   // background-image: url("../../assets/images/minions.jpg");
+// }
 
 .inviteInfo {
   @include tachyons(absolute tc pa5);
@@ -13,7 +13,6 @@
 }
 
 .title {
-  @include tachyons(f1);
   font-family: "Stalemate", cursive;
   color: $black;
   @include not-small {
@@ -21,16 +20,25 @@
   }
 }
 
-.desc {
-  @include tachyons(f3);
-  font-family: "EB Garamond", serif;
+.desc,
+.date {
+  font-family: "Raleway", sans-serif;
   @include not-small {
-    font-size: 2rem;
+    font-size: 1rem;
   }
 }
 
+.date {
+  @include tachyons(f3);
+}
+
 .backgroundInviteDiv {
-  background-image: url("../../assets/images/minions.jpg");
+  background-image: url("../../assets/images/elegant_teacup.jpg");
   background-size: cover;
   background-position: 50% 50%;
+}
+
+.inviteAuxilliaryInfo {
+  background-color: #a4070533;
+  color: white;
 }
