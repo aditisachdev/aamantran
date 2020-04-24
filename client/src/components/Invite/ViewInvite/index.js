@@ -1,5 +1,4 @@
-import React, { useContext, useState } from "react";
-import { AppContext } from "../../../Root";
+import React, { useState } from "react";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
 import { formateDate, formatTime } from "../../../helpers/date";
@@ -29,43 +28,16 @@ const GET_INVITE_QUERY = gql`
 `;
 
 const ViewInvite = ({ match }) => {
-  const [designPaperData, setDesignPaperData] = useState(<></>);
-  const [designBackgroundData, setDesignBackgroundData] = useState(<></>);
   const [templateStyle, setTemplateStyle] = useState({});
 
   const getInviteImage = async invite => {
     const { designPaper } = invite;
-    // const res = await import(
-    //   /* webpackMode: "eager" */ `../../../assets/images/${imageFile}`
-    // ).then(src => {
-    //   // return <img src={src.default} className={styles.inviteDesignPaper} />;
-    //   return (
-    //     <div
-    //       // style={{ backgroundImage: src.default, backgroundSize: "cover" }}
-    //       className={cx(
-    //         styles.backgroundInviteDiv,
-    //         templateStyle.backgroundInviteDiv
-    //       )}
-    //     >
-    //       <div className={templateStyle.title}>{invite.title}</div>
-    //       <div className={templateStyle.desc}>{invite.desc}</div>
-    //     </div>
-    //   );
-    // });
-    // // setDesignPaperData(res);
-    // console.log("res:", res);
-    // setDesignBackgroundData(res);
-
-    // const cssFileName = imageFile;
-
     await import(
-      /* webpackMode: "eager" */ `../../../styles/templates/${designPaper}.module.scss`
+      /* webpackMode: "eager" */ `../../../styles/invite_templates/${designPaper}.module.scss`
     ).then(src => {
       setTemplateStyle(src.default);
     });
   };
-
-  const { setHeaderTitle } = useContext(AppContext);
 
   return (
     // Setting the notifyOnNetworkStatusChange prop since otherwise, I'm facing an issue where onCompleted event isnt fired
@@ -83,20 +55,11 @@ const ViewInvite = ({ match }) => {
         if (error) return <div>error...</div>;
 
         const { invite } = data;
-        // setHeaderTitle(invite.title);
         return (
           <div
             className={cx(styles.inviteMainDiv, templateStyle.inviteMainDiv)}
           >
-            {/* <div className={styles.invitePaper}>
-              {designPaperData}
-              <div className={templateStyle.inviteInfo}>
-                <div className={templateStyle.title}>{invite.title}</div>
-                <div className={templateStyle.desc}>{invite.desc}</div>
-              </div>
-            </div> */}
             <div
-              // style={{ backgroundImage: src.default, backgroundSize: "cover" }}
               className={cx(
                 styles.backgroundInviteDiv,
                 templateStyle.backgroundInviteDiv
@@ -104,7 +67,6 @@ const ViewInvite = ({ match }) => {
             >
               <div className={templateStyle.inviteInfo}>
                 <div className={templateStyle.title}>{invite.title}</div>
-                {/* <div className={templateStyle.desc}>{invite.desc}</div> */}
                 <div className={templateStyle.date}>
                   {formateDate(invite.eventDatetime)}
                 </div>
