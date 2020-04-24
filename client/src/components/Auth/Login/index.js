@@ -67,7 +67,7 @@ const Login = ({ history }) => {
                     </Button>
                   </div>
                   <div className={styles.loginButtonDiv}>
-                    New user? Sign up{" "}
+                    New user? Sign up&nbsp;
                     <Button type="text" onClick={() => history.push("/signup")}>
                       here
                     </Button>
