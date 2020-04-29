@@ -2,6 +2,7 @@ import graphene
 from graphene_django import DjangoObjectType
 
 from .models import Invite
+from .constants import DESIGN_PAPER_CHOICES
 
 
 class InviteType(DjangoObjectType):
@@ -13,12 +14,16 @@ class InviteType(DjangoObjectType):
 class Query(graphene.ObjectType):
     invite = graphene.Field(InviteType, id=graphene.Int(required=True))
     invites = graphene.List(InviteType)
+    designs = graphene.List(graphene.String)
 
     def resolve_invite(self, info, id):
         return Invite.objects.get(pk=id)
 
     def resolve_invites(self, info):
         return Invite.objects.all()
+
+    def resolve_designs(self, info):
+        return [design[1] for design in DESIGN_PAPER_CHOICES]
 
 
 class CreateInvite(graphene.Mutation):
@@ -40,7 +45,7 @@ class CreateInvite(graphene.Mutation):
         address="",
         contact_phone_number="",
         desc="",
-        design_paper=None,
+        design_paper="baby_feet",
         event_datetime=None,
     ):
         user = info.context.user

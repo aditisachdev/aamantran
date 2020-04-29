@@ -1,7 +1,6 @@
 DESIGN_PAPER_CHOICES = [
-    (1, "minions"),
-    (2, "baby_feet"),
-    (3, "donut_with_sprinkles"),
-    (4, "elegant_teacup"),
+    (1, "baby_feet"),
+    (2, "donut_with_sprinkles"),
+    (3, "elegant_teacup"),
 ]
 

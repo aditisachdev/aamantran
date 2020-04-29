@@ -52,7 +52,7 @@ const ViewInvite = ({ match }) => {
       notifyOnNetworkStatusChange
     >
       {({ data, error, loading }) => {
-        if (loading) return <div>loading123 ...</div>;
+        if (loading) return <div>loading ...</div>;
         if (error) return <div>error...</div>;
 
         const { invite } = data;
