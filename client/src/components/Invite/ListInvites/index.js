@@ -30,11 +30,21 @@ const ListInvites = ({ history }) => {
           return (
             <Layout.Row gutter="10" key={`Invite-${index}`}>
               <Layout.Col span={12} offset={6}>
-                <div
-                  className={styles.inviteListing}
-                  onClick={() => history.push(`/invite/${invite.id}`)}
-                >
-                  {invite.title}
+                <div className={styles.inviteListing}>
+                  <div
+                    className={styles.inviteTitle}
+                    onClick={() => history.push(`/invite/${invite.id}`)}
+                  >
+                    {invite.title}
+                  </div>
+                  <div
+                    onClick={() => {
+                      history.push(`/editinvite/${invite.id}`);
+                    }}
+                    className={styles.editInviteButton}
+                  >
+                    <i className="el-icon-edit"></i>
+                  </div>
                 </div>
               </Layout.Col>
             </Layout.Row>

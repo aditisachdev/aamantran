@@ -42,10 +42,10 @@ class CreateInvite(graphene.Mutation):
         self,
         info,
         title,
+        design_paper,
         address="",
         contact_phone_number="",
         desc="",
-        design_paper="baby_feet",
         event_datetime=None,
     ):
         user = info.context.user

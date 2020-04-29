@@ -1,1 +1,30 @@
 @import "../../../styles/common";
+
+.mainGrid {
+  @include tachyons(ph5 pv4);
+}
+
+.selectDesignCard {
+  @include tachyons(pa1);
+}
+
+.selectDesignButtonContainer {
+  @include tachyons(flex justify-around);
+  background-color: $translucentPeach;
+}
+.selectDesignButton {
+  @include tachyons("black");
+}
+
+.designImage {
+  @include tachyons(w-100);
+  height: auto;
+}
+
+.stepsComponent {
+  @include tachyons(ph4);
+}
+
+.createInviteButtonDiv {
+  @include tachyons(mt3 flex justify-center);
+}

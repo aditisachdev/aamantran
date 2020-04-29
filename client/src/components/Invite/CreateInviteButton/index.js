@@ -10,6 +10,7 @@ const CreateInviteButton = withRouter(({ history }) => {
       className={styles.createInviteButton}
       text="Create Invite"
       onClick={() => history.push("/createinvite")}
+      icon="plus"
     />
   );
 });

@@ -11,6 +11,7 @@ import { gql } from "apollo-boost";
 import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
 import CreateInvite from "./components/Invite/CreateInvite";
+import EditInvite from "./components/Invite/EditInvite";
 import ViewInvite from "./components/Invite/ViewInvite";
 import TopNavbar from "./components/Shared/TopNavbar";
 import LandingPage from "./pages/LandingPage";
@@ -68,6 +69,11 @@ ReactDOM.render(
                       exact
                       path="/createinvite"
                       component={CreateInvite}
+                    />
+                    <Route
+                      exact
+                      path="/editinvite/:id"
+                      component={EditInvite}
                     />
                     <Route exact path="/invite/:id" component={ViewInvite} />
                   </Switch>

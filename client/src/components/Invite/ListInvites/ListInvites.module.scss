@@ -1,5 +1,15 @@
 @import "../../../styles/common";
 
 .inviteListing {
-  @include tachyons(pa4 mv3 b--light-silver shadow-5 pointer);
+  @include tachyons(
+    pa4 mv3 b--light-silver shadow-5 pointer flex justify-between
+  );
+}
+
+.inviteTitle {
+  @include tachyons(w-100);
+}
+
+.editInviteButton {
+  @include tachyons(dn);
 }
