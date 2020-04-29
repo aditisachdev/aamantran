@@ -9,6 +9,17 @@ Features:
 * RSVP (in progress)
 * Maps Integration (in progress)
 
+## Screenshots:
+#### Step 1 of Create Invite flow:
+<img src="client/src/assets/screenshots/create_invite_step1.png" width="800" />
+
+#### Step 2 of Create Invite flow:
+<img src="client/src/assets/screenshots/create_invite_step2.png" width="800" />
+
+#### Invitation Main:
+<img src="client/src/assets/screenshots/invite1.png" width="800" />
+
+
 ## Project Structure
 There are two top level folders:
 * client: Contains the React/GraphQL frontend app
