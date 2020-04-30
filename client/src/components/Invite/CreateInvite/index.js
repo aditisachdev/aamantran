@@ -86,11 +86,7 @@ const CreateInvite = ({ history, editMode = false }) => {
       {(createInvite, { error, loading }) => {
         return (
           <div className={styles.mainGrid}>
-            <Steps
-              space={200}
-              active={currentStep}
-              className={styles.stepsComponent}
-            >
+            <Steps active={currentStep} className={styles.stepsComponent}>
               <Steps.Step
                 title="Step 1"
                 description="Browse designs"
@@ -150,14 +146,9 @@ const CreateInviteStep1 = ({ history, setCurrentStep, setSelectedDesign }) => {
 
         const { designs } = data;
         return (
-          <Layout.Row
-            gutter="20"
-            type="flex"
-            justify="space-around"
-            className={styles.layoutComponent}
-          >
+          <Layout.Row gutter="20" className={styles.layoutComponentStep1}>
             {map(designs, (designImage, index) => (
-              <Layout.Col span="7" className={styles.mainGrid} key={index}>
+              <Layout.Col sm="24" className={styles.mainGrid} key={index}>
                 <Card
                   className={styles.selectDesignCard}
                   bodyStyle={{ padding: 0 }}
@@ -211,13 +202,8 @@ const CreateInviteStep2 = ({ history, ...props }) => {
   } = props;
 
   return (
-    <Layout.Row
-      gutter="20"
-      type="flex"
-      justify="space-around"
-      className={styles.layoutComponent}
-    >
-      <Layout.Col span="8" className={styles.mainGrid}>
+    <Layout.Row gutter="20" className={styles.layoutComponentStep2}>
+      <Layout.Col sm="20" md="8" className={styles.mainGrid}>
         <Form
           className="en-US"
           model={{ title, desc, date, contactPhoneNumber }}
@@ -231,7 +217,7 @@ const CreateInviteStep2 = ({ history, ...props }) => {
           <Form.Item label="Brief description of the event">
             <Input value={desc} onChange={value => setDesc(value)}></Input>
           </Form.Item>
-          <Form.Item>
+          <Form.Item label="Select the date and time for your event">
             <DatePicker
               isShowTime={true}
               value={date}

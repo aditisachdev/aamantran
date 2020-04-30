@@ -29,7 +29,11 @@
 
 .inviteAuxilliaryContent {
   @include tachyons(flex flex-row justify-between h-100 ph2);
-  padding-top: rem(10);
+  padding-top: rem(5);
+
+  @include not-small {
+    padding-top: rem(10);
+  }
 
   @include extra-large {
     padding-top: rem(16);
@@ -38,6 +42,10 @@
 
 .inviteAuxilliaryInfoBlock {
   @include tachyons(w-33 tc);
+  font-size: rem(10);
+  @include not-small {
+    font-size: 1rem;
+  }
 }
 
 .inviteAuxilliaryInfoBlockText {

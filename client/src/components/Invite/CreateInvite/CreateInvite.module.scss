@@ -1,7 +1,7 @@
 @import "../../../styles/common";
 
 .mainGrid {
-  @include tachyons(ph5 pv4);
+  @include tachyons(ph5-ns pv4);
 }
 
 .selectDesignCard {
@@ -22,7 +22,21 @@
 }
 
 .stepsComponent {
-  @include tachyons(ph4);
+  @include tachyons(ph0-ns ph3);
+
+  @include small {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.layoutComponentStep1,
+.layoutComponentStep2 {
+  @include tachyons(ph0-ns ph3);
+  @include not-small {
+    display: flex;
+    justify-content: space-around;
+  }
 }
 
 .createInviteButtonDiv {

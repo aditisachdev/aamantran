@@ -6,6 +6,13 @@
   );
 }
 
+.inviteListingColumn {
+  margin-left: 25%;
+  @include small {
+    margin-left: 0;
+  }
+}
+
 .inviteTitle {
   @include tachyons(w-100);
 }

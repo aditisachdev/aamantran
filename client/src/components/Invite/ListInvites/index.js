@@ -29,7 +29,11 @@ const ListInvites = ({ history }) => {
         return map(data.invites, (invite, index) => {
           return (
             <Layout.Row gutter="10" key={`Invite-${index}`}>
-              <Layout.Col span={12} offset={6}>
+              <Layout.Col
+                sm="24"
+                md="12"
+                className={styles.inviteListingColumn}
+              >
                 <div className={styles.inviteListing}>
                   <div
                     className={styles.inviteTitle}

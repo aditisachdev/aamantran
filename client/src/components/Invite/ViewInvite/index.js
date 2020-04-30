@@ -67,7 +67,9 @@ const ViewInvite = ({ match }) => {
               )}
             >
               <div className={templateStyle.inviteInfo}>
-                <div className={templateStyle.title}>{invite.title}</div>
+                <div className={cx(styles.title, templateStyle.title)}>
+                  {invite.title}
+                </div>
                 <div className={templateStyle.date}>
                   {formateDate(invite.eventDatetime)}
                 </div>

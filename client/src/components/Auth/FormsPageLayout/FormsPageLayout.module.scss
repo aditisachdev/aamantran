@@ -2,7 +2,10 @@
 
 .formsDiv {
   @include tachyons(flex flex-column items-center justify-center);
-  height: 60vh;
+
+  @include not-small {
+    height: 60vh;
+  }
 }
 
 .title {
@@ -11,4 +14,10 @@
 
 .card {
   width: 28%;
+
+  @include small {
+    width: 100%;
+    border: none;
+    box-shadow: none;
+  }
 }
