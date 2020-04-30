@@ -11,12 +11,20 @@ Features:
 
 ## Screenshots:
 #### Step 1 of Create Invite flow:
+##### On Mobile:
+<img src="client/src/assets/screenshots/create_invite_step1_mobile.png" width="400" />
+
+##### On Desktop:
 <img src="client/src/assets/screenshots/create_invite_step1.png" width="800" />
 
 #### Step 2 of Create Invite flow:
 <img src="client/src/assets/screenshots/create_invite_step2.png" width="800" />
 
 #### Invitation Main:
+##### On Mobile:
+<img src="client/src/assets/screenshots/invite_1_mobile.png" width="500" />
+
+##### On Desktop:
 <img src="client/src/assets/screenshots/invite1.png" width="800" />
 
 
