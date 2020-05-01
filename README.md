@@ -22,7 +22,7 @@ Features:
 
 #### Invitation Main:
 ##### On Mobile:
-<img src="client/src/assets/screenshots/invite_1_mobile.png" width="500" />
+<img src="client/src/assets/screenshots/invite_1_mobile.png" width="350" />
 
 ##### On Desktop:
 <img src="client/src/assets/screenshots/invite1.png" width="800" />
