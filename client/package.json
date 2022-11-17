@@ -19,7 +19,7 @@
     "react-hot-loader": "^4.12.20",
     "react-player": "^1.9.3",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "2.1.5",
+    "react-scripts": "5.0.1",
     "tachyons-sass": "^4.9.5"
   },
   "scripts": {
